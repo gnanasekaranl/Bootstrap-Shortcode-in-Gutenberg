@@ -56,9 +56,11 @@ if ( ! function_exists( 'bootstrap_shortcode_register_buttons' ) ) {
 
 //bootrsap library enqueue in admin
 function load_custom_wp_admin_style(){
-    wp_register_style( 'bootstrap_wp_admin_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', false, '3.3.7' );
-    wp_enqueue_style( 'bootstrap_wp_admin_css' );
-    wp_register_script( 'bootstrap_wp_admin_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', false, '3.3.7' );
+    wp_register_style( 'bootstrap_wp_admin_shortcode_help_css', plugin_dir_url( __FILE__ ).'/js/admin/bootstrap-shortcodes-help.css', false, '3.3.7' );
+    wp_enqueue_style( 'bootstrap_wp_admin_shortcode_help_css' );
+    wp_register_style( 'bootstrap_wp_admin_shortcode_modal_css', plugin_dir_url( __FILE__ ).'/js/admin/bootstrap-modal.css', false, '3.3.7' );
+    wp_enqueue_style( 'bootstrap_wp_admin_shortcode_modal_css' );
+    wp_register_script( 'bootstrap_wp_admin_js', plugin_dir_url( __FILE__ ).'/js/admin/bootstrap.js', false, '3.3.7' );
     wp_enqueue_script( 'bootstrap_wp_admin_js' );
 }
 add_action('admin_enqueue_scripts', 'load_custom_wp_admin_style');
